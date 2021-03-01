@@ -1,0 +1,46 @@
+Savu Ioana Rusalda 335CB - tema1
+
+Punctaj checker: [45/45]
+Timp : 0m10.782s
+
+	Functia generate_delta :
+		-am creat o lista care contine toate literele din alfabet si un string
+null pentru aliniere
+		-am creat lista corespunzatoare cuvantului vid (['e',0,0,0,0,0,0...]), 
+numarul de cifre de 0 corespunde numarului de litere din alfabet
+		-in functie de pattern-ul primit am creat cate o lista pentru fiecare 
+stare. Aceasta contine starea si 26 zerouri (['L',0,0,0,0...]; ['LF',0,0,0,0,0])
+		-am adaugat toate listele mentionate mai sus in lista "delta = []" 
+pentru a forma matricea.
+
+###############################################################################
+
+	Functia complete_delta:
+		-am extras starea 1 din matrice(prima litera din pattern)
+		-am completat linia corespunzatoare cuvantului vid in functie de starea 
+1. delta[1][starea1] = 1;
+		-am parcurs matricea delta si fiecarei stari i-am adaugat pe rand cate o
+litera. Pentru fiecare cuvant creat in urma concatenarii am cautat cel mai lung
+sufix care se potriveste cu una dintre starile din delta.
+
+###############################################################################
+
+	Functia find_sufix:
+		-parcurg cuvantul primit ca parametru si verific daca se potriveste in
+matrice. In caz contrar elimin cate o litera de la stanga la dreapta pana cand 
+noul cuvand se potriveste sau pana se ajunge la cuvantul vid(starea 0).
+
+###############################################################################
+
+	Functia letter_index -intoarce indexul din matrice corespunzator literei 
+primite ca si parametru
+
+###############################################################################
+	
+	Functia max -intoarce maximul dintre 2 numere
+
+	MAIN:
+	-am realiat generarea matricei delta si cautarea pattern-ului in text cu
+ajutorul functiei automata_matcher predata la curs.
+
+

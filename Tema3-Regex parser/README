@@ -1,0 +1,40 @@
+Savu Ioana Rusalda 335CB
+
+TRANSFORMARE ER in NFA
+
+Pentru generarea NFA-ului am generat un arbore de parsare cu ajutoul scheletului
+de laborator.
+
+	Am creat cate o clasa pentru fiecare tip de operatie si pentru Caractere,
+pentru a putea aplica recursivitatea in generarea NFA-ului.
+	In clasa Parser am folosit o stiva cu ajutorul careia am format arborele
+de parsare. Aceasta clasa contine cate o metoda ,pentru fiecare operatie 
+aplicata, care ajuta la generarea unui singur Obiect EXPR la finalul inputului.
+
+	Exemplu generare arbore :
+	((ba)d**) 
+	stiva : ['('] -> ['(','('] -> ['(', '(', Charachter(b)] -> 
+['(', '(', Charachter(b), Character(a)] -> aplicare reducere concatenare ->
+['(', '(', Concat(Charachter(b), Character(a))] -> 
+['(', '(', Concat(Charachter(b), Character(a)), ')'] ->reducere paranteza ->
+['(', Parant(Concat(Charachter(b), Character(a)))] ->
+['(', Parant(Concat(Charachter(b), Character(a))),Character(d)] ->
+['(', Parant(Concat(Charachter(b), Character(a))), Star(Character(d))] ->
+reducere concatenare ->
+ ['(', Concat(Parant(Concat(Charachter(b), Character(a))), Star(Character(d)))]
+ ->
+ ['(', Concat(Parant(Concat(Charachter(b), Character(a))), Star(Character(d))),
+ ')']
+ ->reducere paranteza
+  [Parant(Concat(Parant(Concat(Charachter(b), Character(a))),   														
+Star(Character(d))))]
+
+Pe baza acestui arbore am construit NFA-ul prin metodele de convert.
+Pentru generare am folosit figurile din IMAGINA IMG1.jpg atasata in arhiva.
+
+TRANSFORMARE NFA in DFA 
+	Am folosit tema 2
+
+P.S: Am atasat in arhiva:
+	-scheletul de la care am inecput tema
+	-imaginea dupa care m-am ghidat in generarea NFA-ului

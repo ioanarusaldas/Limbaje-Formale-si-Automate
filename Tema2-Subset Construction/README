@@ -1,0 +1,55 @@
+Tema2 - Subset Construction
+Savu Ioana Rusalda 335CB
+
+	In vederea realizarii temei am folosit algoritmul prezentat la curs si 
+reprezentarea NFA-ului din scheletul laboratorului 5.
+
+	epsilonClosure(state)
+
+	In functia epsilonClosure calculez inchiderea epsilon pentru starea primita
+ca si parametru. Astfel, parcurg fiecare tuplu din reprezentarea NFA-ului si 
+verific daca starea din duplu corespunde starii cautate de mine. In caz 
+afirmativ, verific daca exista tranzitie epsilon din acea stare si salvez 
+starile in care se poate ajunge pe tranzitia epsilon.
+	La final verific daca am gasit o stare noua pentru a marca daca mai am stari
+de verificat la pasul urmator.
+###############################################################################
+
+	reachable_states(state,ch,epsClosures)
+
+	In functia reachable_states returnez un set corespunzator starilor in care 
+se poate ajunge dintr-o stare data, pe un caracter dat.
+	Verific daca exista tranzitie pe perametrii primiti in reprezentarea 
+NFA-ului. In caz afirmativ, parcurg starile obtinute in urma tranzitiei pentru 
+a le adauga inchiderile epsilon.
+###############################################################################
+
+	final_states(states)
+
+	In functia final_states calculez starile finale din DFA pe baza starilor 
+finale din NFA. Prin parcurgerea starilor finale din NFA verific daca esxista 
+stare finala in setul primit ca parametru.
+###############################################################################
+
+	subset_construction(out,epsClosures)
+
+	In functia subset_construction realizez convertirea NFA-ului la DFA.
+	Pentru fiecare litera din alfabetul NFA-ului parcurg fiecare stare care 
+alcatuieste starea curenta din DFA.
+	Calculez starile in care se poate ajunge in urma unei tranzitii si verific 
+daca starea nou formata exista deja in DFA. Daca exista adaug tranzitie noua 
+catre aceasta, iar daca nu exista adaug o noua stare in DFA si o marchez ca 
+nevizitata.
+	Tot procesul se realizeaza intr-un while. La finalul while-ului verific daca
+mai exista stari in DFA care nu au fost vizitate pentru a stii cand opresc 
+iteratia.
+	La finalul functiei printez numarul de stari ale DFA-ului si starile finale
+si returnez DFA-ul.
+###############################################################################
+	main()
+
+	In functia main am realizat apelul functiei de constructie si afisarea in
+fisierul de output.
+	Citirea din fisier am luat-o din scheletul de laborator.
+
+
